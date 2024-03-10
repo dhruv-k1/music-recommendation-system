@@ -1,0 +1,22 @@
+{% extends "./index.html" %} 
+
+{% block body %}
+  {% if user_song %}
+    Recommendation for {{ user_song }}
+  {% endif %}
+  <div class="d-flex flex-wrap justify-content-evenly mt-4">
+    {% for song in songs %}
+      <div class="card mb-4" style="width: 18rem">
+        <div style="width: 100%; height: 60%">
+          <img
+            src="{{ url_for('static', filename='song.jpeg') }}"
+            class="card-img-top"
+            alt="..."
+            style="width: 100%; height: 100%; object-fit: cover"
+          />
+        </div>
+        <div class="card-body text-break">{{ song }}</div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock body %}
